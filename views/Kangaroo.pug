@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= title
+  div(style='text-align: right;')
+   button(type='button' class="btn btn-success") Add New Instance
+  - let items = results
+   div.container-fluid
+    div.row
+     div.col-sm-2(onClick=`buy(${index})`) #[Strong kangaroo_name ]
+     div.col-sm-2(onClick=`buy(${index})`) #[Strong kangaroo_age]
+     div.col-sm-2(onClick=`buy(${index})`) #[strong kangaroo_jumpheight ]
+     hr
+     br
+     each kangaroo,index in items
+      div.col-sm-2(onClick=`buy(${index})`) #{kangaroo.k_name}
+      div.col-sm-2(onClick=`buy(${index})`) #{kangaroo.k_age}
+      div.col-sm-2(onClick=`buy(${index})`) #{kangaroo.k_jumpheight}
+      div(style='text-align: right;')
+       button(type='button' class="btn btn-success") Save
+       button(type='button' class="btn btn-success") Ok
+       button(type='button' class="btn btn-success") update
+       button(type='button' class="btn btn-success") delete 
+
+      br
+      hr
+
+  script.
+        function buy(index)
+        {
+            alert(`You purchased Item ${index+1}`)
+        }
